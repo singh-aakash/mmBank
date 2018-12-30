@@ -77,19 +77,6 @@ public class SavingsAccountDAOImpl implements SavingsAccountDAO {
 		throw new AccountNotFoundException("Account with account number "+accountNumber+" does not exist.");
 	}
 	
-	/*public SavingsAccount updateAccount(int accountNumber, String accountHolderName) throws SQLException, ClassNotFoundException {
-		Connection connection = DBUtil.getConnection();
-		PreparedStatement preparedStatement = connection.prepareStatement("UPDATE account SET  account_hn = ? WHERE account_id = ?");
-		preparedStatement.setString(1, accountHolderName);
-		preparedStatement.setInt(2, accountNumber);
-		int rowsAffected = preparedStatement.executeUpdate();
-		if(rowsAffected == 0)
-			throw new InvalidInputException("Account with account number "+accountNumber+" does not exist.");
-		return null;
-	}*/
-
-	
-
 	@Override
 	public SavingsAccount deleteAccount(int accountNumber) throws SQLException, ClassNotFoundException, InvalidInputException {
 		Connection connection = DBUtil.getConnection();
@@ -129,8 +116,8 @@ public class SavingsAccountDAOImpl implements SavingsAccountDAO {
 		preparedStatement.setString(1, account.getBankAccount().getAccountHolderName());
 		preparedStatement.setBoolean(2, account.isSalary());
 		int rowsAffected = preparedStatement.executeUpdate();
-		if(rowsAffected == 0)
-			throw new InvalidInputException("Account with account number  does not exist.");
+		if(rowsAffected == 1)
+			System.out.println("Account Updated");
 		return null;
 	}
 
