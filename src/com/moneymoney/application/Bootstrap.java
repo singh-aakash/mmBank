@@ -16,11 +16,7 @@ public class Bootstrap {
 			PreparedStatement preparedStatement = 
 					connection.prepareStatement("DELETE FROM ACCOUNT");
 			preparedStatement.execute();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (ClassNotFoundException| SQLException e) {
 			e.printStackTrace();
 		}
 	}

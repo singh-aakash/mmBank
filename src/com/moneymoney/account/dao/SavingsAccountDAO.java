@@ -17,5 +17,7 @@ public interface SavingsAccountDAO {
 	void updateBalance(int accountNumber, double currentBalance) throws ClassNotFoundException, SQLException;
 	void commit() throws SQLException;
 	double checkAccountBalance(int accountNumber) throws SQLException, ClassNotFoundException, InvalidInputException;
-
+	List<SavingsAccount> getAllAccountsSortedByNames() throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> getAllSavingsAccountsSortedByRange(double minimum,
+			double maximum) throws ClassNotFoundException, SQLException;
 }

@@ -24,6 +24,12 @@ public interface SavingsAccountService {
 	void withdraw(SavingsAccount account, double amount) throws ClassNotFoundException, SQLException;
 
 	double checkAccountBalance(int accountNumber) throws ClassNotFoundException, SQLException, InvalidInputException;
+	
+	List<SavingsAccount> getAllSavingsAccountsSortedByNames() throws ClassNotFoundException, SQLException;
+
+	List<SavingsAccount> getAllSavingsAccountsSortedByRange(double minimum,
+			double maximum) throws ClassNotFoundException, SQLException;
+
 
 }
 

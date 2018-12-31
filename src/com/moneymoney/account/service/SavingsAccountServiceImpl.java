@@ -41,7 +41,6 @@ public class SavingsAccountServiceImpl implements SavingsAccountService {
 			double currentBalance = account.getBankAccount().getAccountBalance();
 			currentBalance += amount;
 			savingsAccountDAO.updateBalance(account.getBankAccount().getAccountNumber(), currentBalance);
-			//savingsAccountDAO.commit();
 		}else {
 			throw new InvalidInputException("Invalid Input Amount!");
 		}
@@ -52,7 +51,6 @@ public class SavingsAccountServiceImpl implements SavingsAccountService {
 		if (amount > 0 && currentBalance >= amount) {
 			currentBalance -= amount;
 			savingsAccountDAO.updateBalance(account.getBankAccount().getAccountNumber(), currentBalance);
-			//savingsAccountDAO.commit();
 		} else {
 			throw new InsufficientFundsException("Invalid Input or Insufficient Funds!");
 		}
@@ -95,6 +93,18 @@ public class SavingsAccountServiceImpl implements SavingsAccountService {
 			throws ClassNotFoundException, SQLException, InvalidInputException {
 		return savingsAccountDAO.checkAccountBalance(accountNumber);
 		
+	}
+
+	@Override
+	public List<SavingsAccount> getAllSavingsAccountsSortedByNames() throws ClassNotFoundException, SQLException {
+		return savingsAccountDAO.getAllAccountsSortedByNames();
+	}
+
+	@Override
+	public List<SavingsAccount> getAllSavingsAccountsSortedByRange(
+			double minimum, double maximum) throws ClassNotFoundException, SQLException {
+		return savingsAccountDAO.getAllSavingsAccountsSortedByRange(minimum,maximum);
+	
 	}
 
 }
