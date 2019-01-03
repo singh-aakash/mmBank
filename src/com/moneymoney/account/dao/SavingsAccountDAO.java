@@ -20,4 +20,7 @@ public interface SavingsAccountDAO {
 	List<SavingsAccount> getAllAccountsSortedByNames() throws ClassNotFoundException, SQLException;
 	List<SavingsAccount> getAllSavingsAccountsSortedByRange(double minimum,
 			double maximum) throws ClassNotFoundException, SQLException;
+	List<SavingsAccount> getAccountByBalanceRange(double minimumBalance, double highestBalance) throws ClassNotFoundException, SQLException, AccountNotFoundException;
+	SavingsAccount getAccountByName(String accountToSearch) throws ClassNotFoundException, SQLException, AccountNotFoundException;
+	List<SavingsAccount> sort(int choice) throws ClassNotFoundException, SQLException;
 }

@@ -30,6 +30,12 @@ public interface SavingsAccountService {
 	List<SavingsAccount> getAllSavingsAccountsSortedByRange(double minimum,
 			double maximum) throws ClassNotFoundException, SQLException;
 
+	SavingsAccount getAccountHolderName(String accountToSearch) throws ClassNotFoundException, SQLException, AccountNotFoundException;
+
+	List<SavingsAccount> getAccountByBalanceRange(double minimumBalance, double highestBalance) throws ClassNotFoundException, SQLException, AccountNotFoundException;
+
+	List<SavingsAccount> sort(int choice) throws ClassNotFoundException, SQLException;
+
 
 }
 

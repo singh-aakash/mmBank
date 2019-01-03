@@ -107,4 +107,22 @@ public class SavingsAccountServiceImpl implements SavingsAccountService {
 	
 	}
 
+	@Override
+	public SavingsAccount getAccountHolderName(String accountToSearch)
+			throws ClassNotFoundException, SQLException, AccountNotFoundException {
+		return savingsAccountDAO.getAccountByName(accountToSearch);
+	}
+
+	@Override
+	public List<SavingsAccount> getAccountByBalanceRange(double minimumBalance, double highestBalance)
+			throws ClassNotFoundException, SQLException, AccountNotFoundException {
+		return savingsAccountDAO.getAccountByBalanceRange(minimumBalance, highestBalance);
+	}
+
+	@Override
+	public List<SavingsAccount> sort(int choice) throws ClassNotFoundException, SQLException {
+		return savingsAccountDAO.sort(choice);
+		
+	}
+
 }
